@@ -1,0 +1,30 @@
+name: test
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+    - name: Harden Security
+      uses: step-security/harden-runner@v2
+      with:
+        egress-policy: audit
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: npm
+    - run: npm ci --ignore-scripts
+    - run: npm run test:ci
+    - run: npm run lint:ci
+    - uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: eslint.sarif

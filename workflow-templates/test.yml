@@ -1,7 +1,9 @@
 name: test
 
 on:
-  workflow_call:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
 
 permissions: read-all
 

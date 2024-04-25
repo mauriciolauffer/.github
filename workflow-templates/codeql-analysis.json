@@ -1,0 +1,13 @@
+{
+  "name": "CodeQL Workflow Template",
+  "description": "MauricioLauffer CI starter workflow.",
+  "iconName": "octicon beaker",
+  "categories": [
+      "npm"
+  ],
+  "filePatterns": [
+      "package.json$",
+      "^Dockerfile",
+      ".*\\.md$"
+  ]
+}

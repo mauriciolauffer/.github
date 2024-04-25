@@ -3,8 +3,6 @@ name: test-template
 on:
   workflow_call:
 
-permissions: read-all
-
 jobs:
   test:
     runs-on: ubuntu-latest

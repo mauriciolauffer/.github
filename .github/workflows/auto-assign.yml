@@ -13,6 +13,11 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: Harden Security
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: pozil/auto-assign-issue@v2
         with:
           assignees: mauriciolauffer

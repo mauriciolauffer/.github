@@ -1,6 +1,7 @@
 name: Auto-assign Issue + PR
 
 on:
+  workflow_call:
   issues:
     types: [opened]
   pull_request:

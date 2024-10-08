@@ -11,6 +11,7 @@
 #
 name: CodeQL - Reusable Workflow
 on:
+  workflow_call:
   push:
     branches: [ main ]
   pull_request:

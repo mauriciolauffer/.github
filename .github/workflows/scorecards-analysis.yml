@@ -7,6 +7,9 @@ on:
   push:
     branches: [ main ]
   workflow_call:
+    secrets:
+      SCORECARD_READ_TOKEN:
+        required: true
 
 jobs:
   analysis:

@@ -1,9 +1,8 @@
 name: NPM Package Publish - Reusable Workflow
 on:
+  workflow_call:
   release:
     types: [created]
-
-permissions: read-all
 
 jobs:
   publish:

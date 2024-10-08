@@ -1,0 +1,19 @@
+name: Auto-assign Issue + PR
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions: read-all
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: pozil/auto-assign-issue@v2
+        with:
+          assignees: mauriciolauffer

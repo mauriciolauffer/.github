@@ -23,6 +23,8 @@ jobs:
           cache: pnpm
       - run: pnpm i --prefer-offline
       - run: pnpm --if-present run build
-      - run: pnpm publish --no-git-checks
+      - run: pnpm publish --no-git-checks --access public --provenance
         env:
           npm_config_provenance: true
+          NODE_AUTH_TOKEN: ""
+          NPM_TOKEN: ""

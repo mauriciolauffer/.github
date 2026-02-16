@@ -1,9 +1,6 @@
 name: NPM Package Publish with PNPM - Reusable Workflow
 on:
   workflow_call:
-    secrets:
-      NODE_AUTH_TOKEN:
-        required: true
   release:
     types: [created]
 
@@ -12,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
     steps:
       - name: Harden Security
         uses: step-security/harden-runner@v2
@@ -26,3 +24,5 @@ jobs:
       - run: pnpm i --prefer-offline
       - run: pnpm --if-present run build
       - run: pnpm publish --no-git-checks
+        env:
+          npm_config_provenance: true

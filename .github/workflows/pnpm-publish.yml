@@ -19,10 +19,11 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
+          node-version: "lts/*"
           registry-url: https://registry.npmjs.org
           cache: pnpm
       - run: pnpm i --prefer-offline
       - run: pnpm --if-present run build
-      - run: pnpm publish --no-git-checks --access public --provenance
+      - run: pnpm publish --no-git-checks --provenance
         env:
-          npm_config_provenance: true
+          NPM_CONFIG_PROVENANCE: true

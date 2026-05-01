@@ -18,6 +18,6 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: pozil/auto-assign-issue@v2
+      - uses: pozil/auto-assign-issue@v3
         with:
           assignees: mauriciolauffer
